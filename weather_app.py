@@ -6,12 +6,11 @@ from PIL import ImageTk, Image
 import urllib.parse
 
 
-# ----------------------------
-# ✅ Put your OpenWeatherMap API key here
+
+# Put your OpenWeatherMap API key here
 api_key = '9cf4f8f31e7c3bcaa6021d05556ccb61'
 
 
-# ----------------------------
 
 # Main window setup
 root = Tk()
@@ -31,15 +30,14 @@ label.place(relx=0.5, y=20, anchor="n")
 
 
 
-# ----------------------------
-# ✅ Ensure this image exists (or replace with your own)
+
 try:
     background_img = ImageTk.PhotoImage(Image.open('logo.png'))
     panel = Label(root, image=background_img)
     panel.place(x=0, y=520)
 except:
     print("myimage.jpeg not found. Replace or remove this part.")
-# ----------------------------
+
 
 # Date & Time
 dt = datetime.datetime.now()
@@ -56,8 +54,7 @@ hour.place(x=10, y=160)
 # Time-based icon
 hour_now = int(dt.strftime('%H'))
 
-# ----------------------------
-# ✅ Ensure these images exist (sun.png and moon.png)
+#  Ensure these images exist (sun.png and moon.png)
 try:
     if hour_now >= 20 or hour_now <= 5:
         img = ImageTk.PhotoImage(Image.open('moon.png'))  # Night
@@ -67,7 +64,6 @@ try:
     panel_theme.place(x=210, y=200)
 except:
     print("sun.png or moon.png not found. Add them or remove this part.")
-# ----------------------------
 
 # City input
 city_var = StringVar()
@@ -134,7 +130,7 @@ def get_weather():
           return
 
 
-        # Extract values
+        # Extracting values
         current_temp = data['main']['temp']
         humidity = data['main']['humidity']
         temp_min = data['main']['temp_min']
